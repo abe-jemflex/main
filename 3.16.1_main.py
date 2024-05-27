@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-#更新履歴
-
 #後処理2.951
+# test sample
 
 import sys
 import os
@@ -102,6 +101,7 @@ i2caddress = '5A'
 currentList = [52,46,39,32,24,15,57,53,48,43,37,32]
 tmpList = [6,6,6,6,6,6,6,6,6,6,6,6]
 
+# test_2
 
 def getLogPath( prefix, date ):
 	try:
@@ -156,7 +156,6 @@ class Application:
 		try:
 			while True: 
 				self._loggerRunner._loop()
-# 				time.sleep_ms(100)
 				if Application.__ReCreateFlg:
 					Application.__ReCreateFlg = False
 					self.close()
@@ -260,7 +259,6 @@ class DataClass:
 				if len(read_data) <= 0:
 					continue
 			except Exception as e:
-# 				print(e)
 				linear = bytearray()
 				self._buf_enable = True
 				break
@@ -292,7 +290,6 @@ class DataClass:
 							continue
 					break     
 				except:
-# 					print('except2')
 					linear = bytearray()
 					break
 			if ( LINEAR_BUF_LIMIT < len(linear) ):
@@ -378,9 +375,6 @@ class LoggerRunner:
 			if not self._running:
 				return
 			if D.hasError():
-# 				print('software_reset')
-# 				machine.reset()
-# 				print('ReCreate')
 				Application.SetReCreate()
 				time.sleep_ms( 500 )
 				return
